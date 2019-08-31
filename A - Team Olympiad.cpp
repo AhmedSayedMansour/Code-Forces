@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
-#define ms(a,v) memset(a,v,sizeof a)
+#include <stdio.h>
+#include <ctype.h>
+ 
 using namespace std;
-
-
 int main()
 {
-    int n,k,ans =0;
-    cin >> n>>k;
-    int x,y;
-
-	for (int i = 0; i < n; i++)
-	{
-		cin >> x >> y;
-		ans += (y - x + 1);
-	}
-
-	((k - ans%k) == k ) ? cout<< 0 : cout <<k - ans%k ;
-	cout<< endl;
-
+    int n,num,mini;
+    cin>>n;
+    vector<int> vec1,vec2,vec3;
+    for(int i=0;i<n;++i)
+    {
+        cin>>num;
+        if(num==1)vec1.push_back(i);
+        else if(num==2)vec2.push_back(i);
+        else vec3.push_back(i);
+    }
+    mini=min(vec1.size(),min(vec2.size(),vec3.size()));
+    cout<<mini<<endl;
+    for(int i=0;i<mini;++i)cout<<++vec1[i]<<' '<<++vec2[i]<<' '<<++vec3[i]<<endl;
     return 0;
 }
